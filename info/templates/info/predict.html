@@ -19,38 +19,38 @@
     <form action = "/predict" method = "post" class = "margin needs-validatation">
         {% csrf_token %}
         <div class = "form-group ">
-          <label>Gender?</label>
+          <label>Gender?&nbsp;</label>
           <label class = "radio-inline"><input type = "radio" name = "gender" value = "Male" required>Male</label>
           <label class = "radio-inline"><input type = "radio" name = "gender" value = "Female">Female</label>
         </div>
         <div class = "form-group">
-          <label>Is Smoker?</label>
+          <label>Is Smoker?&nbsp;</label>
           <label class = "radio-inline"><input type = "radio" name = "smoker" value = "Yes" required>Yes</label>
           <label class = "radio-inline"><input type = "radio" name = "smoker" value = "No">No</label>
         </div>
          <div class = "form-group">
-          <label>On Blood Pressure Medication?</label>
+          <label>On Blood Pressure Medication?&nbsp;</label>
           <label class = "radio-inline"><input type = "radio" name = "BPMeds" value = "Yes" required>Yes</label>
           <label class = "radio-inline"><input type = "radio" name = "BPMeds" value = "No">No</label>
         </div>
          <div class = "form-group">
-          <label>Prevalent Stroke?</label>
+          <label>Prevalent Stroke?&nbsp;</label>
           <label class = "radio-inline"><input type = "radio" name = "stroke" required value = "Yes">Yes</label>
           <label class = "radio-inline"><input type = "radio" name = "stroke" value = "No">No</label>
         </div>
         <div class = "form-group">
-          <label>Prevalent Hypertension</label>
+          <label>Prevalent Hypertension?&nbsp;</label>
           <label class = "radio-inline"><input type = "radio" name = "hypertension" required value = "Yes">Yes</label>
           <label class = "radio-inline"><input type = "radio" name = "hypertension" value = "No">No</label>
         </div>
         <div class = "form-group">
-          <label>Diabetes?</label>
+          <label>Diabetes?&nbsp;</label>
           <label class = "radio-inline"><input type = "radio" name = "diabetes" value = "Yes" required>Yes</label>
           <label class = "radio-inline"><input type = "radio" name = "diabetes" value = "No">No</label>
         </div>
         <div class = "form-group" margin>
-          <label for = "education">Education?</label>
-          <select name = 'education' width = "50%">
+          <label for = "education">Education?&nbsp;</label>
+          <select name = 'education' style = "width:150px">
             <option value = "somehighschool" required name = "education">Some High School</option>
             <option value = "highschool" name = "education">High School or GED</option>
             <option value = "somecollege" name = "education">Some College/Vocational School</option>
