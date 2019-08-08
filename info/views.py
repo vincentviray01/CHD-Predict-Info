@@ -19,16 +19,11 @@ def index(request):
 
 def predict(request):
 	if request.method == "POST":
-		print('hi world')
 		data = request.POST.copy()
 		print(data)
 		prediction = [0 if data.get('gender') == 'Female' else 1, 0 if data.get('smoker') == 'No' else 1, 0 if data.get('BPMeds') == 'No' else 1, 0 if data.get('stroke') == 'No' else 1, 0 if data.get('hypertension') == 'No' else 1, 0 if data.get('diabetes') == 'No' else 1, getattr(Education, data.get('education')).value, float(data.get('age')), float(data.get('cigs')), float(data.get('cholesterol')), float(data.get('sysBP')), float(data.get('diaBP')), float(data.get('BMI')), float(data.get('heartRate')), float(data.get('glucose'))]
 		# prediction = request.GET['prediction']
-		print('prediction is: ', prediction)
-		print('and teh model prediction is:  ', model.predict_proba([prediction]))
-		print('model prediction is: ', model.predict([prediction]))
 		obj = CHDPredictions.objects.create(gender = 0 if data.get('gender') == 'Female' else 1, isSmoker = 0 if data.get('smoker') == 'No' else 1, onBPM = 0 if data.get('BPMeds') == 'No' else 1, stroke = 0 if data.get('stroke') == 'No' else 1, hypertension = 0 if data.get('hypertension') == 'No' else 1, diabetes = 0 if data.get('diabetes') == 'No' else 1, education =  data.get('education'), age = float(data.get('age')), cigs = float(data.get('cigs')), cholesterol = float(data.get('cholesterol')), sysBP = float(data.get('sysBP')), diaBP = float(data.get('diaBP')), BMI = float(data.get('BMI')), heartRate = float(data.get('heartRate')), glucose = float(data.get('glucose')), hasCHD = bool(model.predict([prediction])))
-		print(model.predict_proba([prediction])[0][0]> 0.5)
 		return render(request, 'info/predict.html', {'model_prediction': float("%.2f" % (model.predict_proba([prediction])[0][1] * 100 ))})
 	
 	return render(request, 'info/predict.html')
