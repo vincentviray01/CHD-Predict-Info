@@ -1,49 +1,51 @@
 {% extends 'info/base.html' %}
 {% block content %}
-	<table class = "table table-striped container" style = "font-size:1vw;text-align:center">
-		<thead>
-			<tr>
-				<th scope = "col"></th>
-				<th scope = "col">Gender</th>
-				<th scope = "col">Smoker</th>
-				<th scope = "col">BPM</th>
-				<th scope = "col">Stroke</th>
-				<th scope = "col">Hypertension</th>
-				<th scope = "col">Diabetes</th>
-				<th scope = "col">Age</th>
-				<th scope = "col">Cigs</th>
-				<th scope = "col">Cholesterol</th>
-				<th scope = "col">SysBP</th>
-				<th scope = "col">DiaBP</th>
-				<th scope = "col">BMI</th>
-				<th scope = "col">Heart Rate</th>
-				<th scope = "col">Glucose</th>
-				<th scope = "col">Education</th>
-				<th scope = "col">CHD</th>
-			</tr>
-		</thead>
-		<tbody>
-			{% for prediction in dbPredictions %}
-			<tr>
-				<th scope = "row">{{ prediction.id }}</th>
-				<td>{{ prediction.gender }}</td>
-				<td>{{ prediction.isSmoker}}</td>
-				<td>{{ prediction.onBPM }}</td>
-				<td>{{ prediction.stroke}}</td>
-				<td>{{ prediction.hypertension}}</td>
-				<td>{{ prediction.diabetes}}</td>
-				<td>{{ prediction.age}}</td>
-				<td>{{ prediction.cigs}}</td>
-				<td>{{ prediction.cholesterol}}</td>
-				<td>{{ prediction.sysBP}}</td>
-				<td>{{ prediction.diaBP}}</td>
-				<td>{{ prediction.BMI}}</td>
-				<td>{{ prediction.heartRate}}</td>
-				<td>{{ prediction.glucose}}</td>
-				<td>{{ prediction.education}}</td>
-				<td>{{ prediction.hasCHD}}</td>
-			</tr>
-			{% endfor %}
-		</tbody>
-	</table>
+	<div style = "overflow-x:auto">
+		<table class = "table table-striped" style = "font-size:10px;text-align:center">
+			<thead>
+				<tr>
+					<th scope = "col"></th>
+					<th scope = "col">Gender</th>
+					<th scope = "col">Smoker</th>
+					<th scope = "col">BPM</th>
+					<th scope = "col">Stroke</th>
+					<th scope = "col">Hypertension</th>
+					<th scope = "col">Diabetes</th>
+					<th scope = "col">Age</th>
+					<th scope = "col">Cigs</th>
+					<th scope = "col">Cholesterol</th>
+					<th scope = "col">SysBP</th>
+					<th scope = "col">DiaBP</th>
+					<th scope = "col">BMI</th>
+					<th scope = "col">Heart Rate</th>
+					<th scope = "col">Glucose</th>
+					<th scope = "col">Education</th>
+					<th scope = "col">CHD</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for prediction in dbPredictions %}
+				<tr>
+					<th scope = "row">{{ prediction.id }}</th>
+					<td>{{ prediction.gender }}</td>
+					<td>{{ prediction.isSmoker}}</td>
+					<td>{{ prediction.onBPM }}</td>
+					<td>{{ prediction.stroke}}</td>
+					<td>{{ prediction.hypertension}}</td>
+					<td>{{ prediction.diabetes}}</td>
+					<td>{{ prediction.age}}</td>
+					<td>{{ prediction.cigs}}</td>
+					<td>{{ prediction.cholesterol}}</td>
+					<td>{{ prediction.sysBP}}</td>
+					<td>{{ prediction.diaBP}}</td>
+					<td>{{ prediction.BMI}}</td>
+					<td>{{ prediction.heartRate}}</td>
+					<td>{{ prediction.glucose}}</td>
+					<td>{{ prediction.education}}</td>
+					<td>{{ prediction.hasCHD}}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
 {% endblock %}
