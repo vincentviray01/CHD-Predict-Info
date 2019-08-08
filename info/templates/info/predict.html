@@ -1,0 +1,135 @@
+{% extends 'info/base.html' %}
+
+{% block content %}
+  {% if model_prediction is not None %}
+       <div class = "container paragraph">
+           <p style = "font-family:Times New Roman"><h4>Answer the questions again to receive another prediction.</h4></p>
+          </div>
+       {% if model_prediction <= 50 %}
+          <p><h3 class = "paragraph text-success border border-success">There is a {{ model_prediction }}% chance that you may develop CHD!</h3></p>
+       {% else %}
+         <p><h3 class = "paragraph text-danger border border-danger">There is a {{ model_prediction }}% chance that you have CHD!</h3></p>
+       {% endif %}
+  {% else %}
+    <div class = "container paragraph">
+            <p style = "font-family:Times New Roman"><h4>Answer the questions below to see how likely you may have CHD.</h4></p>
+    </div>
+  {% endif %}
+  <div class = "container predict_form">
+    <form action = "/info/predict" method = "post" class = "margin needs-validatation">
+        {% csrf_token %}
+        <div class = "form-group ">
+          <label>Gender?</label>
+          <label class = "radio-inline"><input type = "radio" name = "gender" value = "Male" required>Male</label>
+          <label class = "radio-inline"><input type = "radio" name = "gender" value = "Female">Female</label>
+        </div>
+        <div class = "form-group">
+          <label>Is Smoker?</label>
+          <label class = "radio-inline"><input type = "radio" name = "smoker" value = "Yes" required>Yes</label>
+          <label class = "radio-inline"><input type = "radio" name = "smoker" value = "No">No</label>
+        </div>
+         <div class = "form-group">
+          <label>On Blood Pressure Medication?</label>
+          <label class = "radio-inline"><input type = "radio" name = "BPMeds" value = "Yes" required>Yes</label>
+          <label class = "radio-inline"><input type = "radio" name = "BPMeds" value = "No">No</label>
+        </div>
+         <div class = "form-group">
+          <label>Prevalent Stroke?</label>
+          <label class = "radio-inline"><input type = "radio" name = "stroke" required value = "Yes">Yes</label>
+          <label class = "radio-inline"><input type = "radio" name = "stroke" value = "No">No</label>
+        </div>
+        <div class = "form-group">
+          <label>Prevalent Hypertension</label>
+          <label class = "radio-inline"><input type = "radio" name = "hypertension" required value = "Yes">Yes</label>
+          <label class = "radio-inline"><input type = "radio" name = "hypertension" value = "No">No</label>
+        </div>
+        <div class = "form-group">
+          <label>Diabetes?</label>
+          <label class = "radio-inline"><input type = "radio" name = "diabetes" value = "Yes" required>Yes</label>
+          <label class = "radio-inline"><input type = "radio" name = "diabetes" value = "No">No</label>
+        </div>
+        <div class = "form-group" margin>
+          <label for = "education">Education?</label>
+          <select name = 'education'>
+            <option value = "somehighschool" required name = "education">Some High School</option>
+            <option value = "highschool" name = "education">High School or GED</option>
+            <option value = "somecollege" name = "education">Some College/Vocational School</option>
+            <option value = "college" name = "education">College</option>
+          </select>
+        </div>
+        <div class = "form-group ">
+          <label for = "age">Age</label>
+          <input type = "number" name = 'age' min = "0" max = "120" max size = "36" id = "age" required class = "col-sm-2 form-control">
+          <div class = "valid-feedback">Valid.</div>
+          <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+        <div class = "form-group">
+          <label for = "cigs">Cigs per day?</label>
+          <input type = "number" name = 'cigs' min = '0' max = '100' size = "36" id = "cigs" required class = "col-sm-2 form-control">
+          <div class = "valid-feedback">Valid.</div>
+          <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+        <div class = "form-group">
+          <label for = "cholesterol">Total Cholesterol (mg/dL)</label>
+          <input type = "number" name = 'cholesterol' min = "50" max = "5000" size = "36" id = "cholesterol" required class = "col-sm-2 form-control">
+          <div class = "valid-feedback">Valid.</div>
+          <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+        <div class = "form-group">
+          <label for = "sysBP">Systolic Blood Pressure (mmHg)</label>
+          <input type = "number" name = 'sysBP' min = "50" max = "2000" size = "36" id = "sysBP" required class = "col-sm-2 form-control">
+          <div class = "valid-feedback">Valid.</div>
+          <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+        <div class = "form-group">
+          <label for = "diaBP">Diastolic Blood Pressure (mmHg)</label>
+          <input type = "number" name = 'diaBP' min = "0" max = "1500"size = "36" id = "diaBP" required class = "col-sm-2 form-control">
+          <div class = "valid-feedback">Valid.</div>
+          <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+        <div class = "form-group">
+          <label for = "BMI">Body Mass Index (kg/m<sup>2</sup>)</label>
+          <input type = "number" name = 'BMI' min = "0" max = "1000" size = "36" id = "BMI" required class = "col-sm-2 form-control">
+          <div class = "valid-feedback">Valid.</div>
+          <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+        <div class = "form-group">
+          <label for = "heartRate">Heart Rate (beats/min)</label>
+          <input type = "number" name = 'heartRate' min = "0" max = "1500" size = "36" id = "heartRate" required class = "col-sm-2 form-control">
+          <div class = "valid-feedback">Valid.</div>
+          <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+        <div class = "form-group">
+          <label for = "glucose">Glucose (mg/dL)</label>
+          <input type = "number" name = 'glucose' min = "20" max = "2000" size = "36" id = "glucose" required class = "col-sm-2 form-control">
+          <div class = "valid-feedback">Valid.</div>
+          <div class="invalid-feedback">Please fill out this field.</div>
+        </div>
+        <button type = "submit" class = "btn btn-primary">Predict</button>
+    </form>
+  </div>
+
+
+
+  <script>
+  // Disable form submissions if there are invalid fields
+  (function() {
+    'use strict';
+    window.addEventListener('load', function() {
+      // Get the forms we want to add validation styles to
+      var forms = document.getElementsByClassName('needs-validation');
+      // Loop over them and prevent submission
+      var validation = Array.prototype.filter.call(forms, function(form) {
+        form.addEventListener('submit', function(event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    }, false);
+  })();
+  </script>
+{% endblock %}
+

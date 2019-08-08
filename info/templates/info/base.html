@@ -1,0 +1,138 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <title>Coronary Heart Disease</title> 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style> 
+      .body-layer{
+        margin: 0px 7.5% 00px 7.5%;
+        background-color:#F0F0F0;
+        border-right: 5px solid black;
+        border-left: 5px solid black;
+        border-top: 5px solid black;
+        position: relative;
+        min-height:100vh;
+        padding-bottom:140px;
+      }
+        html{
+            min-height: 100%;
+            position:relative;
+        }
+        .head1 { 
+            font-size:40px; 
+            color:#0000EE; 
+            font-weight:bold; 
+            
+        } 
+        .head2 { 
+            font-size:17px; 
+            margin-left:10px; 
+            margin-bottom:15px; 
+        } 
+        body { 
+            margin: 0; 
+            background-position:center; 
+            background-size: contain; 
+/*            background-repeat: no-repeat;
+*/            /*position: absolute;*/
+        } 
+      
+        .menu {    
+            position: static; 
+            border-top: 5px solid black;
+            top: 0; 
+            background-color: #000099; 
+            padding:10px 0px 10px 0px; 
+            color:white; 
+            margin: 0 auto; 
+            overflow: hidden; 
+        } 
+        .menu a { 
+            float: left; 
+            color: white; 
+            text-align: center; 
+            padding: 14px 16px; 
+            text-decoration: none; 
+            font-size: 20px; 
+        } 
+        .menu-log { 
+            right: auto; 
+            float: right; 
+        } 
+        footer { 
+            position: absolute;
+            width: 100%; 
+            bottom: 0px; 
+            height: 120px;
+            background-color: #000; 
+            color: #fff; 
+            padding-top:10px; 
+            padding-bottom:30px;
+            text-align:center; 
+            font-size:20px; 
+            font-weight:bold; 
+
+            
+        } 
+
+        .predict_form {
+            background-color:white;
+            width:50%;
+            border-color:blue;
+            border-width:1px;
+            border-style: solid;
+
+        }
+        .body_sec { 
+            margin-left:20px; 
+            margin-right:20px;
+            margin-top: 20px;
+        } 
+        p{
+            overflow-y: auto;
+        }
+
+        .paragraph{
+            text-align: center;
+            border-color: #0000FF
+            border-width: thin;
+            margin:10px;
+        }
+
+    </style> 
+</head> 
+  
+<body background = "https://www.thoughtco.com/thmb/4JckZAV5nExLtUwVgEXYcuqlcVE=/1500x1000/filters:no_upscale():max_bytes(150000):strip_icc()/loose_connective_tissue-5b68c53446e0fb0050388e5a.jpg"> 
+    <div class = 'body-layer'>
+         <!-- Header Section -->
+        <header> 
+            <div class="head1" align = "center" >Coronary Heart Disease</div> 
+            <div class="head2" align = "center">A website for CHD information and predictions</div> 
+        </header> 
+          
+        <!-- Menu Navigation Bar -->
+        <div class="menu"> 
+            <a href="/info/">HOME</a> 
+            <a href="predict">PREDICT</a> 
+            <a href = "predictions">PREDICTIONS</a>
+            <a href= "vocab">VOCAB</a>
+            <a href="references">REFERENCES</a> 
+
+        </div> 
+        {% block content %}
+        {% endblock %}
+    
+        <!-- Footer Section -->
+        <footer>
+            <p>832-994-312 | vincentviray01@gmail.com</p>
+                <a href = "https://www.linkedin.com/in/vincent-viray/"><img src = "https://www.capstonebusinessadvisors.com/files/2502/Common/icon-social-linkedin.png" height = '42' width = '42'></a>
+                <a href = "https://github.com/vincentviray01"><img src = "https://icon-library.net/images/github-icon-png/github-icon-png-29.jpg" height = "42" width = "42"></a>
+        </footer> 
+    </div>
+      
+       
+</body> 
+</html>    
