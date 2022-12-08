@@ -2,5 +2,5 @@ sklearn==0.0
 Django==2.2.3
 gunicorn==19.9.0
 chardet==3.0.4
-certifi==2019.3.9
+certifi==2022.12.7
 django-heroku==0.3.1
